@@ -125,12 +125,12 @@ function Person(){
 
     }
 
-    // Person.prototype.name = 'peter';
-    // Person.prototype.age = 18;
-    // Person.prototype.job = 'software engineer';
-    // Person.prototype.sayName = function(){
-    //     alert(this.name);
-    // }
+    Person.prototype.name = 'peter';
+    Person.prototype.age = 18;
+    Person.prototype.job = 'software engineer';
+    Person.prototype.sayName = function(){
+        alert(this.name);
+    }
 
     Person.prototype = {
         name:'peter',
