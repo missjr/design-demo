@@ -9,70 +9,70 @@
 <body>
 <script>
 //创建一个object实例
-// var person = new Object();
-// person.name = 'peter';
-// person.age = 24;
-// person.job = 'software engineer';
-//
-// person.sayName = function(){
-//     alert(this.name);
-// }
+var person = new Object();
+person.name = 'peter';
+person.age = 24;
+person.job = 'software engineer';
+
+person.sayName = function(){
+    alert(this.name);
+}
 
 //用对象字面量的方式创建对象
-// var person2 = {
-//     name:'tom',
-//     age:25,
-//     job:'software engineer',
-//     sayName:function(){
-//         alert(this.name);
-//     }
-// }
+var person2 = {
+    name:'tom',
+    age:25,
+    job:'software engineer',
+    sayName:function(){
+        alert(this.name);
+    }
+}
 
 //工厂模式
-// function createPerson(name,age,job){
-//     var obj = new Object();
-//     obj.name = name;
-//     obj.age = age;
-//     obj.job = job;
-//     obj.sayName = function(){
-//         alert(this.name);
-//     }
-//     return obj;
-// }
-//
-// var person1 = createPerson('peter',24,'software engineer');
-// var person2 = createPerson('tom',25,'doctor');
+function createPerson(name,age,job){
+    var obj = new Object();
+    obj.name = name;
+    obj.age = age;
+    obj.job = job;
+    obj.sayName = function(){
+        alert(this.name);
+    }
+    return obj;
+}
+
+var person1 = createPerson('peter',24,'software engineer');
+var person2 = createPerson('tom',25,'doctor');
 
 //构造函数的方式
-// function Person(name,age,job){
-//     this.name = name;
-//     this.age = age;
-//     this.job = job;
-//     this.sayName = function(){
-//         alert(this.name);
-//     }
-// }
-//
-// var person1 = new Person('peter',24,'software engineer');
-// var person2 = new Person('tom',25,'doctor');
-// alert(person1.sayName == person2.sayName);
+function Person(name,age,job){
+    this.name = name;
+    this.age = age;
+    this.job = job;
+    this.sayName = function(){
+        alert(this.name);
+    }
+}
 
-// function Person(name,age,job){
-//     this.name = name;
-//     this.age = age;
-//     this.job = job;
-//     this.sayName = sayName;
-// }
-//
-// function sayName(){
-//     alert(this.name);
-// }
+var person1 = new Person('peter',24,'software engineer');
+var person2 = new Person('tom',25,'doctor');
+alert(person1.sayName == person2.sayName);
 
-// alert(person1.constructor == Person);
-// alert(person2.constructor == Person);
+function Person(name,age,job){
+    this.name = name;
+    this.age = age;
+    this.job = job;
+    this.sayName = sayName;
+}
 
-// alert(person1 instanceof Object);
-// alert(person1 instanceof Person);
+function sayName(){
+    alert(this.name);
+}
+
+alert(person1.constructor == Person);
+alert(person2.constructor == Person);
+
+alert(person1 instanceof Object);
+alert(person1 instanceof Person);
 
 /*
 工厂方式和面向对象的不同之处
