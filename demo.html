@@ -82,21 +82,21 @@ alert(person1 instanceof Person);
 */
 
 //当作构造函数使用
-// var person = new Person('peter',28,'software engineer');
-// person.sayName();
+var person = new Person('peter',28,'software engineer');
+person.sayName();
 
 //作为普通函数调用
-// Person('tom',25,'doctor');  //添加到window
-// window.sayName();
+Person('tom',25,'doctor');  //添加到window
+window.sayName();
 
 //在另一个对象中的作用域中调用
-// var o = new Object();
-// Person.call(o,'smith',24,'student');
-// o.sayName();
-//
-// var obj = new Object();
-// Person.apply(obj,['rose',22,'teacher']);
-// obj.sayName();
+var o = new Object();
+Person.call(o,'smith',24,'student');
+o.sayName();
+
+var obj = new Object();
+Person.apply(obj,['rose',22,'teacher']);
+obj.sayName();
 
 //原型模式
 function Person(){
@@ -115,10 +115,10 @@ var person2 = new Person();
 person1.name = 'tom';
 alert(person1.name);
 alert(person2.name);
-// person1.sayName();
+person1.sayName();
 
-// alert(Person.prototype.isPrototypeOf(person1));
-// alert(Object.getPrototypeOf(person1) == Person.prototype); //获取对象的原型
+alert(Person.prototype.isPrototypeOf(person1));
+alert(Object.getPrototypeOf(person1) == Person.prototype); //获取对象的原型
 
 
 function Person(){
