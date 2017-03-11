@@ -100,7 +100,6 @@ obj.sayName();
 
 //原型模式
 function Person(){
-
 }
 
 Person.prototype.name = 'peter';
@@ -123,44 +122,44 @@ alert(Object.getPrototypeOf(person1) == Person.prototype); //获取对象的原�
 
 function Person(){
 
-    }
+}
 
-    Person.prototype.name = 'peter';
-    Person.prototype.age = 18;
-    Person.prototype.job = 'software engineer';
-    Person.prototype.sayName = function(){
+Person.prototype.name = 'peter';
+Person.prototype.age = 18;
+Person.prototype.job = 'software engineer';
+Person.prototype.sayName = function(){
+    alert(this.name);
+}
+
+Person.prototype = {
+    name:'peter',
+    age:21,
+    job:'software engineer',
+    sayName:function(){
         alert(this.name);
     }
-
-    Person.prototype = {
-        name:'peter',
-        age:21,
-        job:'software engineer',
-        sayName:function(){
-            alert(this.name);
-        }
-    }
+}
 
 
-    //获取对象上所有可枚举的实例属性
-    var keys = Object.keys(Person.prototype);
-    // alert(keys);
+//获取对象上所有可枚举的实例属性
+var keys = Object.keys(Person.prototype);
+// alert(keys);
 
-    var p1 = new Person();
-    p1.name = 'tom';
-    p1.age = 20;
-    var p1keys = Object.keys(p1);
-    alert(p1keys);
-    
-    
-    function hasPrototypeProperty(object,attr){
-        return !object.hasOwnProperty(attr) && (attr in object);
-    }
+var p1 = new Person();
+p1.name = 'tom';
+p1.age = 20;
+var p1keys = Object.keys(p1);
+alert(p1keys);
 
-    var person = new Person();
-    alert(hasPrototypeProperty(person,'name'));
-    person.name = 'tom';
-    alert(hasPrototypeProperty(person,'name'));
+//判断某个属性是否属于原型对象
+function hasPrototypeProperty(object,attr){
+    return !object.hasOwnProperty(attr) && (attr in object);
+}
+
+var person = new Person();
+alert(hasPrototypeProperty(person,'name'));
+person.name = 'tom';
+alert(hasPrototypeProperty(person,'name'));
 </script>
 </body>
 </html>
