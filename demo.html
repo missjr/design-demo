@@ -155,7 +155,6 @@ alert(p1keys);
 function hasPrototypeProperty(object,attr){
     return !object.hasOwnProperty(attr) && (attr in object);
 }
-//03.27注释
 var person = new Person();
 alert(hasPrototypeProperty(person,'name'));
 person.name = 'tom';
